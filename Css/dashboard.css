@@ -1,0 +1,155 @@
+/* Reset & Body */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #fff0f0;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100%;
+  background: #b30000;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.sidebar .logo {
+  text-align: center;
+  margin-bottom: -50px;
+}
+
+.sidebar-logo {
+  width: 150px;       /* adjust size */
+  margin: -14 ; 
+  position: relative;   /* center horizontally */
+}
+
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 12px 20px;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.sidebar ul li.active, .sidebar ul li:hover {
+  background: #ff4d4d;
+  cursor: pointer;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 220px;
+  padding: 20px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.topbar input {
+  width: 300px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #b30000;
+}
+
+.user-icon {
+  font-size: 1.5rem;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: #fff;
+  flex: 1 1 200px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(179,0,0,0.2);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #b30000;
+}
+
+.card .number {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+/* Map Section */
+.map-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(179,0,0,0.2);
+  margin-bottom: 30px;
+}
+
+.map-placeholder {
+  height: 300px;
+  background: #ffe5e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Recent Section */
+.recent-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(179,0,0,0.2);
+}
+
+.recent-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.recent-section table th,
+.recent-section table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.recent-section table th {
+  background: #b30000;
+  color: #fff;
+}
+
+tr:hover {
+  background: #ffe5e5;
+}
+
+.status.active {
+  color: green;
+  font-weight: bold;
+}
+
+.status.inactive {
+  color: gray;
+  font-weight: bold;
+}

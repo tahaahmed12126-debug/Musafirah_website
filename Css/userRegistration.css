@@ -1,0 +1,115 @@
+body {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  margin: 0;
+  background: #fff0f0;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100%;
+  background: #b30000;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.sidebar .logo {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 12px 20px;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.sidebar ul li.active, .sidebar ul li:hover {
+  background: #ff4d4d;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 240px;
+  padding: 30px;
+}
+
+h2 {
+  color: #b30000;
+  margin-bottom: 20px;
+}
+
+.user-form {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(179,0,0,0.2);
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: #b30000;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #b30000;
+  font-size: 14px;
+}
+
+.form-images {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.img-upload {
+  flex: 1;
+}
+
+.img-upload label {
+  display: block;
+  margin-bottom: 5px;
+  color: #b30000;
+  font-weight: 600;
+}
+
+.red-button {
+  background: #b30000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.red-button:hover {
+  background: #ff4d4d;
+}

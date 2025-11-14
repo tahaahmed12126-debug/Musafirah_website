@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Musafirrah Dashboard</title>
+  <link rel="stylesheet" href="../Css/dashboard.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+<div class="logo">
+  <img src="../Assets/Logo.png" alt="Musafirrah Logo" class="sidebar-logo">
+</div>
+    <ul>
+      <li class="active"><a href="../Html/Dashboard.html">Dashboard</a></li>
+      <li><a href="../Html/Driver.html">Drivers</a></li>
+      <li><a href="trips.html">Trips</a></li>
+      <li><a href="user.html">Users</a></li>
+      <li><a href="settings.html">Settings</a></li>
+      <li id="logout">Logout</li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header class="topbar">
+      <input type="text" placeholder="Search (Ctrl+K)" />
+      <div class="user-icon">👤</div>
+    </header>
+
+    <div class="content-area">
+      <h2>Dashboard Overview</h2>
+
+      <!-- Cards -->
+      <div class="cards">
+        <div class="card">
+          <h3>Verified Drivers</h3>
+          <p class="number">87</p>
+          <small>+10% from last month</small>
+        </div>
+        <div class="card">
+          <h3>Pending Verifications</h3>
+          <p class="number">12</p>
+          <small>Needs immediate review</small>
+        </div>
+        <div class="card">
+          <h3>Verified Riders</h3>
+          <p class="number">75</p>
+          <small>+5% from last week</small>
+        </div>
+        <div class="card">
+          <h3>Active Trips</h3>
+          <p class="number">24</p>
+          <small>Currently on road</small>
+        </div>
+      </div>
+
+      <!-- Map Section -->
+      <div class="map-section">
+        <h3>Karachi Driver Heatmap</h3>
+        <div class="map-placeholder">
+          <canvas id="heatmap"></canvas>
+        </div>
+        <small>55 drivers currently online</small>
+      </div>
+
+      <!-- Recent Drivers -->
+      <div class="recent-section">
+        <h3>Recent Drivers</h3>
+        <table>
+          <thead>
+            <tr><th>Name</th><th>Car</th><th>Trips</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Ali Khan</td><td>Toyota Corolla</td><td>120</td><td><span class="status active">Active</span></td></tr>
+            <tr><td>Sara Ahmed</td><td>Honda Civic</td><td>95</td><td><span class="status inactive">Offline</span></td></tr>
+            <tr><td>Bilal Sheikh</td><td>Suzuki Alto</td><td>60</td><td><span class="status active">Active</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="../Js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Driver Registration | Musafirrah</title>
+  <link rel="stylesheet" href="../Css/driverRegistration.css" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">🚗 Musafirrah</div>
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li class="active"><a href="driver.html">Drivers</a></li>
+      <li><a href="trips.html">Trips</a></li>
+      <li><a href="user.html">Users</a></li>
+      <li><a href="settings.html">Settings</a></li>
+      <li id="logout">Logout</li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h2>Register New Driver</h2>
+
+    <form id="driverForm" class="driver-form">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" id="name" required />
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" />
+      </div>
+
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="text" id="phone" required />
+      </div>
+
+      <div class="form-group">
+        <label>Car Model</label>
+        <input type="text" id="car_model" required />
+      </div>
+
+      <div class="form-group">
+        <label>Car Number</label>
+        <input type="text" id="car_number" required />
+      </div>
+
+      <div class="upload-section">
+        <h3>Upload Documents</h3>
+        <div class="upload-grid">
+          <div>
+            <p>Profile Image</p>
+            <input type="file" id="image_profile" accept="image/*" />
+          </div>
+          <div>
+            <p>Car Front</p>
+            <input type="file" id="image_car_front" accept="image/*" />
+          </div>
+          <div>
+            <p>Car Back</p>
+            <input type="file" id="image_car_back" accept="image/*" />
+          </div>
+          <div>
+            <p>CNIC</p>
+            <input type="file" id="image_cnic" accept="image/*" />
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="red-button">Register Driver</button>
+    </form>
+  </div>
+
+  <script type="module" src="../Js/driverRegistration.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create User | Musafirrah</title>
+  <link rel="stylesheet" href="../Css/userRegistration.css" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">🚗 Musafirrah</div>
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="driver.html">Drivers</a></li>
+      <li class="active"><a href="user.html">Users</a></li>
+      <li><a href="trips.html">Trips</a></li>
+      <li><a href="settings.html">Settings</a></li>
+      <li id="logout">Logout</li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h2>Create New User</h2>
+
+    <form id="userForm" class="user-form">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="name" required />
+      </div>
+
+      <div class="form-group">
+        <label>CNIC</label>
+        <input type="text" id="cnic" placeholder="xxxxx-xxxxxxx-x" required />
+      </div>
+
+      <div class="form-group">
+        <label>Contact</label>
+        <input type="text" id="contact" required />
+      </div>
+
+      <div class="form-group">
+        <label>Address</label>
+        <textarea id="address" rows="2" required></textarea>
+      </div>
+
+      <div class="form-images">
+        <div class="img-upload">
+          <label>Profile Image</label>
+          <input type="file" id="profileImage" accept="image/*" />
+        </div>
+
+        <div class="img-upload">
+          <label>CNIC Front</label>
+          <input type="file" id="cnicFront" accept="image/*" />
+        </div>
+
+        <div class="img-upload">
+          <label>CNIC Back</label>
+          <input type="file" id="cnicBack" accept="image/*" />
+        </div>
+      </div>
+
+      <button type="submit" class="red-button">Save User</button>
+    </form>
+  </div>
+
+  <script type="module" src="../Js/userRegistration.js"></script>
+</body>
+</html>

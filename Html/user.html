@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User List | Musafirrah</title>
+  <link rel="stylesheet" href="../Css/user.css" />
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">🚗 Musafirrah</div>
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="driver.html">Drivers</a></li>
+      <li class="active"><a href="user.html">Users</a></li>
+      <li><a href="trips.html">Trips</a></li>
+      <li><a href="settings.html">Settings</a></li>
+      <li id="logout">Logout</li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="header">
+      <h2>Users</h2>
+      <button id="createUserBtn" class="red-button">+ Create New</button>
+    </div>
+
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>CNIC</th>
+          <th>Contact</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody id="userTable">
+        <tr><td colspan="4">Loading...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script type="module" src="../Js/user.js"></script>
+</body>
+</html>

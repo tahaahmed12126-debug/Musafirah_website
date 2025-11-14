@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drivers | Musafirrah</title>
+  <link rel="stylesheet" href="../Css/driver.css" />
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">🚗 Musafirrah</div>
+    <ul>
+      <li><a href="../Html/Dashboard.html">Dashboard</a></li>
+      <li class="active"><a href="../Html/Driver.html">Drivers</a></li>
+      <li><a href="trips.html">Trips</a></li>
+      <li><a href="user.html">Users</a></li>
+      <li><a href="settings.html">Settings</a></li>
+      <li id="logout">Logout</li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header class="topbar">
+      <h2>Drivers</h2>
+      <button id="createDriverBtn" class="red-button">Create New</button>
+    </header>
+
+    <div class="content-area">
+      <table class="tree-view">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Car</th>
+            <th>Trips</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="driverTable">
+          <!-- Drivers will be populated here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script type="module" src="../Js/driver.js"></script>
+</body>
+</html>

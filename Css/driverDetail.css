@@ -1,0 +1,147 @@
+/* Reset & Base */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: #fff0f0;
+  color: #333;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 220px;
+  height: 100%;
+  background: #b30000;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.sidebar .logo {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 12px 20px;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.sidebar ul li.active, .sidebar ul li:hover {
+  background: #ff4d4d;
+  cursor: pointer;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 240px;
+  padding: 30px;
+}
+
+.main-content h2 {
+  color: #b30000;
+}
+
+/* Driver Card */
+.driver-card {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(179, 0, 0, 0.2);
+}
+
+.driver-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #b30000;
+}
+
+.driver-info {
+  flex: 1;
+}
+
+.driver-info h2 {
+  margin: 0 0 10px 0;
+  color: #b30000;
+}
+
+.driver-info p {
+  margin: 5px 0;
+  font-size: 15px;
+}
+
+.status.active {
+  color: green;
+  font-weight: bold;
+}
+
+.status.pending {
+  color: orange;
+  font-weight: bold;
+}
+
+/* Buttons */
+.red-button {
+  background: #b30000;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.red-button:hover {
+  background: #ff4d4d;
+}
+
+/* Image Gallery */
+.gallery-title {
+  margin-top: 30px;
+  font-size: 1.2rem;
+  color: #b30000;
+}
+
+.image-gallery {
+  display: flex;
+  gap: 25px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.image-gallery div {
+  text-align: center;
+}
+
+.image-gallery img {
+  width: 220px;
+  height: 160px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 2px solid #b30000;
+  box-shadow: 0 3px 6px rgba(179, 0, 0, 0.2);
+}
+
+.image-gallery p {
+  margin: 5px 0;
+  color: #b30000;
+  font-weight: 600;
+}

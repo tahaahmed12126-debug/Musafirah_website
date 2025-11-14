@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Driver Details | Musafirrah</title>
+  <link rel="stylesheet" href="../Css/driverDetail.css" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">🚗 Musafirrah</div>
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li class="active"><a href="driver.html">Drivers</a></li>
+      <li><a href="trips.html">Trips</a></li>
+      <li><a href="user.html">Users</a></li>
+      <li><a href="settings.html">Settings</a></li>
+      <li id="logout">Logout</li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h2>Driver Details</h2>
+
+    <div class="driver-card">
+      <img id="image_profile" src="" alt="Profile Image" class="driver-image" />
+      <div class="driver-info">
+        <h2 id="driverName">Driver Name</h2>
+        <p><strong>Email:</strong> <span id="driverEmail"></span></p>
+        <p><strong>Phone:</strong> <span id="driverPhone"></span></p>
+        <p><strong>Car:</strong> <span id="driverCar"></span></p>
+        <p><strong>Trips:</strong> <span id="driverTrips"></span></p>
+        <p><strong>Status:</strong> <span id="driverStatus" class="status"></span></p>
+        <button id="toggleStatusBtn" class="red-button"></button>
+      </div>
+    </div>
+
+    <h3 class="gallery-title">Driver Documents</h3>
+    <div class="image-gallery">
+      <div>
+        <p>Car Front</p>
+        <img id="image_car_front" src="" alt="Car Front">
+      </div>
+      <div>
+        <p>Car Back</p>
+        <img id="image_car_back" src="" alt="Car Back">
+      </div>
+      <div>
+        <p>CNIC</p>
+        <img id="image_cnic" src="" alt="CNIC">
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../Js/driverDetails.js"></script>
+</body>
+</html>

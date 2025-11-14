@@ -1,0 +1,139 @@
+/* General Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #fff0f0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Splash Screen */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #d82121; /* Red background like prototype */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeOut 1s ease 3.5s forwards;
+}
+
+.splash-content {
+  text-align: center;
+  animation: fadeIn 1.5s ease, moveUp 2.5s ease-in-out;
+}
+
+.splash-logo {
+  width: 1000px; /* Large logo */
+  max-width: 90%;
+  animation: scaleUp 2s ease-in-out;
+  margin-bottom: 15px;
+}
+
+.tagline {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-top: 10px;
+  opacity: 0;
+  animation: fadeInText 2s ease 1s forwards;
+  letter-spacing: 0.5px;
+}
+
+.highlight-text {
+  color: #ffc107;
+  font-weight: 500;
+}
+
+/* Animations */
+@keyframes scaleUp {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes moveUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* Login Form */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.login-container.show {
+  opacity: 1;
+}
+
+.login-container h2 {
+  color: #b30000;
+  margin-bottom: 20px;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(179,0,0,0.3);
+}
+
+.login-container input {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #b30000;
+  border-radius: 5px;
+  outline: none;
+}
+
+.login-container input:focus {
+  border-color: #b40000;
+}
+
+.login-container button {
+  padding: 12px;
+  border: none;
+  background: #b30000;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-container button:hover {
+  background: #ff4d4d;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9rem;
+  text-align: center;
+}
