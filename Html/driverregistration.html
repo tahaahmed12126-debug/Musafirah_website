@@ -14,10 +14,10 @@
     <ul>
       <li><a href="dashboard.html">Dashboard</a></li>
       <li class="active"><a href="driver.html">Drivers</a></li>
-      <li><a href="trips.html">Trips</a></li>
+      <li><a href="trip.html">Trips</a></li>
       <li><a href="user.html">Users</a></li>
       <li><a href="settings.html">Settings</a></li>
-      <li id="logout">Logout</li>
+            <li><a href="Login.html">Logout</a></li>
     </ul>
   </aside>
 
@@ -26,14 +26,10 @@
     <h2>Register New Driver</h2>
 
     <form id="driverForm" class="driver-form">
+
       <div class="form-group">
         <label>Name</label>
         <input type="text" id="name" required />
-      </div>
-
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" id="email" />
       </div>
 
       <div class="form-group">
@@ -42,13 +38,63 @@
       </div>
 
       <div class="form-group">
-        <label>Car Model</label>
-        <input type="text" id="car_model" required />
+        <label>Email</label>
+        <input type="email" id="email" />
       </div>
 
       <div class="form-group">
-        <label>Car Number</label>
-        <input type="text" id="car_number" required />
+        <label>Role</label>
+        <input type="text" id="role" value="driver" readonly />
+      </div>
+
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" id="city" />
+      </div>
+
+      <div class="form-group">
+        <label>CNIC Number</label>
+        <input type="text" id="Cnic_Number" placeholder="xxxxx-xxxxxxx-x" />
+      </div>
+
+      <div class="form-group">
+        <label>CNIC Name</label>
+        <input type="text" id="cnic_name" />
+      </div>
+
+      <div class="form-group">
+        <label>CNIC DOB</label>
+        <input type="date" id="cnic_dob" />
+      </div>
+
+      <div class="form-group">
+        <label>CNIC Issue Date</label>
+        <input type="date" id="cnic_issue" />
+      </div>
+
+      <div class="form-group">
+        <label>CNIC Expiry Date</label>
+        <input type="date" id="cnic_expiry" />
+      </div>
+
+      <div class="form-group">
+        <label>License Number</label>
+        <input type="text" id="License_Number" />
+      </div>
+
+      <div class="form-group">
+        <label>License Expiry</label>
+        <input type="date" id="license_expiry" />
+      </div>
+
+      <div class="form-group">
+        <label>Emergency Contact (comma separated)</label>
+        <input type="text" id="emergency_contact" placeholder="0311xxxxxxx, 0321xxxxxxx" />
+      </div>
+
+      <div class="form-group">
+        <label>Relation with Emergency Contact</label>
+        <input type="text" id="emergency_relation" />
       </div>
 
       <div class="upload-section">
@@ -59,18 +105,30 @@
             <input type="file" id="image_profile" accept="image/*" />
           </div>
           <div>
-            <p>Car Front</p>
-            <input type="file" id="image_car_front" accept="image/*" />
+            <p>CNIC Front</p>
+            <input type="file" id="image_cnic_front" accept="image/*" />
           </div>
           <div>
-            <p>Car Back</p>
-            <input type="file" id="image_car_back" accept="image/*" />
+            <p>CNIC Back</p>
+            <input type="file" id="image_cnic_back" accept="image/*" />
           </div>
           <div>
-            <p>CNIC</p>
-            <input type="file" id="image_cnic" accept="image/*" />
+            <p>License Front</p>
+            <input type="file" id="image_license_front" accept="image/*" />
+          </div>
+          <div>
+            <p>License Back</p>
+            <input type="file" id="image_license_back" accept="image/*" />
           </div>
         </div>
+      </div>
+
+      <div class="form-group">
+        <label>Is Verified</label>
+        <select id="isVerified">
+          <option value="false">No</option>
+          <option value="true">Yes</option>
+        </select>
       </div>
 
       <button type="submit" class="red-button">Register Driver</button>

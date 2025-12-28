@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Drivers | Musafirrah</title>
+  <title>Trips | Musafirrah</title>
   <link rel="stylesheet" href="../Css/driver.css" />
 </head>
 <body>
@@ -11,9 +11,9 @@
   <aside class="sidebar">
     <div class="logo">🚗 Musafirrah</div>
     <ul>
-      <li><a href="../Html/Dashboard.html">Dashboard</a></li>
-      <li class="active"><a href="../Html/Driver.html">Drivers</a></li>
-      <li><a href="trip.html">Trips</a></li>
+      <li><a href="Dashboard.html">Dashboard</a></li>
+      <li><a href="Driver.html">Drivers</a></li>
+      <li class="active"><a href="Trip.html">Trips</a></li>
       <li><a href="user.html">Users</a></li>
       <li><a href="settings.html">Settings</a></li>
             <li><a href="Login.html">Logout</a></li>
@@ -23,30 +23,31 @@
   <!-- Main Content -->
   <div class="main-content">
     <header class="topbar">
-      <h2>Drivers</h2>
-      <button id="createDriverBtn" class="red-button">Create New</button>
+      <h2>Trips</h2>
     </header>
 
     <div class="content-area">
       <table class="tree-view">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Car</th>
-            <th>Trips</th>
-            <th>City</th>
-            <th>Role</th>
-            <th>Status</th>
-            <th>Action</th>
+            <th>Driver</th>
+            <th>Passenger</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Fare</th>
+            <th>Seating</th>
+            <th>Rating</th>
           </tr>
         </thead>
-        <tbody id="driverTable">
-          <!-- Drivers will be populated here -->
+        <tbody id="tripTable">
+          <!-- Trips will be populated here -->
         </tbody>
       </table>
     </div>
   </div>
 
-  <script type="module" src="../Js/driver.js"></script>
+  <script type="module" src="../Js/trip.js"></script>
 </body>
 </html>

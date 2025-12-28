@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebas
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 // =======================
-// Firebase Config & Init
+// Firebase Config
 // =======================
 const firebaseConfig = {
   apiKey: "AIzaSyDWoif_lwdhAINHWHEhG0l8TjsfzjYeGG8",
@@ -21,41 +21,77 @@ const db = getFirestore(app);
 // DOM Elements
 // =======================
 const userName = document.getElementById("userName");
+const userEmail = document.getElementById("userEmail");
 const userCnic = document.getElementById("userCnic");
+const userDob = document.getElementById("userDob");
 const userContact = document.getElementById("userContact");
+const userEmergencyContact = document.getElementById("userEmergencyContact");
+const userEmergencyRelation = document.getElementById("userEmergencyRelation");
 const userAddress = document.getElementById("userAddress");
+const userWallet = document.getElementById("userWallet");
 
 const profileImage = document.getElementById("profileImage");
 const cnicFront = document.getElementById("cnicFront");
 const cnicBack = document.getElementById("cnicBack");
 
+// =======================
 // Get user ID from URL
-const urlParams = new URLSearchParams(window.location.search);
-const userId = urlParams.get('id');
+// =======================
+const params = new URLSearchParams(window.location.search);
+const userId = params.get("id");
 
 // =======================
 // Load User Data
 // =======================
 async function loadUser() {
-  if (!userId) return alert("No user ID provided!");
+  if (!userId) {
+    alert("No user ID provided!");
+    return;
+  }
 
-  const userRef = doc(db, "users", userId);
-  const userSnap = await getDoc(userRef);
+  try {
+    const userRef = doc(db, "users", userId);
+    const userSnap = await getDoc(userRef);
 
-  if (!userSnap.exists()) return alert("User not found!");
+    if (!userSnap.exists()) {
+      alert("User not found!");
+      return;
+    }
 
-  const user = userSnap.data();
+    const user = userSnap.data();
 
-  // Basic info
-  userName.textContent = user.name || "-";
-  userCnic.textContent = user.cnic || "-";
-  userContact.textContent = user.contact || "-";
-  userAddress.textContent = user.address || "-";
+    // Text Fields
+    userName.textContent = user.name || "-";
+    userEmail.textContent = user.email || "-";
+    userCnic.textContent = user.cnic || "-";
+    userDob.textContent = user.DOB || user.dob || "-";
+    userContact.textContent = user.contact || "-";
+    userAddress.textContent = user.address || "-";
+    userWallet.textContent = user.wallet_balance ?? 0;
 
-  // Images (Base64 stored directly)
-  profileImage.src = user.profile_image || "https://via.placeholder.com/150";
-  cnicFront.src = user.image_cnic_front || "https://via.placeholder.com/150";
-  cnicBack.src = user.image_cnic_back || "https://via.placeholder.com/150";
+    // Emergency Contact (Array Safe)
+    userEmergencyContact.textContent =
+      Array.isArray(user.emergency_contact)
+        ? user.emergency_contact.join(", ")
+        : "-";
+
+    userEmergencyRelation.textContent =
+      user.relation_contact_emergency || "-";
+
+    // Images
+    profileImage.src =
+      user.profile_image || "https://via.placeholder.com/150";
+
+    cnicFront.src =
+      user.image_cnic_front || "https://via.placeholder.com/150";
+
+    cnicBack.src =
+      user.image_cnic_back || "https://via.placeholder.com/150";
+
+  } catch (error) {
+    console.error("Error loading user:", error);
+    alert("Failed to load user data");
+  }
 }
 
 loadUser();

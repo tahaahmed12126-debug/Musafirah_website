@@ -19,15 +19,26 @@ const db = getFirestore(app);
 const driverName = document.getElementById("driverName");
 const driverEmail = document.getElementById("driverEmail");
 const driverPhone = document.getElementById("driverPhone");
-const driverCar = document.getElementById("driverCar");
-const driverTrips = document.getElementById("driverTrips");
+const driverRole = document.getElementById("driverRole");
+const driverCity = document.getElementById("driverCity");
+const driverCnic = document.getElementById("driverCnic");
+const driverCnicName = document.getElementById("driverCnicName");
+const driverCnicDob = document.getElementById("driverCnicDob");
+const driverCnicIssue = document.getElementById("driverCnicIssue");
+const driverCnicExpiry = document.getElementById("driverCnicExpiry");
+const driverLicense = document.getElementById("driverLicense");
+const driverLicenseExpiry = document.getElementById("driverLicenseExpiry");
+const driverEmergency = document.getElementById("driverEmergency");
+const driverEmergencyRelation = document.getElementById("driverEmergencyRelation");
 const driverStatus = document.getElementById("driverStatus");
 const toggleStatusBtn = document.getElementById("toggleStatusBtn");
 
 const imgProfile = document.getElementById("image_profile");
-const imgFront = document.getElementById("image_car_front");
-const imgBack = document.getElementById("image_car_back");
-const imgCnic = document.getElementById("image_cnic");
+const imgProfileDoc = document.getElementById("image_profile_doc");
+const imgCnicFront = document.getElementById("image_cnic_front");
+const imgCnicBack = document.getElementById("image_cnic_back");
+const imgLicenseFront = document.getElementById("image_license_front");
+const imgLicenseBack = document.getElementById("image_license_back");
 
 // Get driver ID from URL
 const urlParams = new URLSearchParams(window.location.search);
@@ -43,28 +54,39 @@ async function loadDriver() {
 
   const driver = driverSnap.data();
 
-  // Basic Info
-  driverName.textContent = driver.name;
+  // Populate Info
+  driverName.textContent = driver.name || "-";
   driverEmail.textContent = driver.email || "-";
   driverPhone.textContent = driver.phone || "-";
-  driverCar.textContent = `${driver.car_model || "-"} - ${driver.car_number || "-"}`;
-  driverTrips.textContent = driver.trips || 0;
-  driverStatus.textContent = driver.available ? "Active" : "Pending";
-  driverStatus.className = driver.available ? "status active" : "status pending";
+  driverRole.textContent = driver.role || "-";
+  driverCity.textContent = driver.city || "-";
+  driverCnic.textContent = driver.Cnic_Number || "-";
+  driverCnicName.textContent = driver.cnic_name || "-";
+  driverCnicDob.textContent = driver.cnic_dob || "-";
+  driverCnicIssue.textContent = driver.cnic_issue || "-";
+  driverCnicExpiry.textContent = driver.cnic_expiry || "-";
+  driverLicense.textContent = driver.License_Number || "-";
+  driverLicenseExpiry.textContent = driver.license_expiry || "-";
+  driverEmergency.textContent = Array.isArray(driver.emergency_contact) ? driver.emergency_contact.join(", ") : "-";
+  driverEmergencyRelation.textContent = driver.emergency_relation || "-";
+  driverStatus.textContent = driver.isVerified ? "Verified" : "Pending";
+  driverStatus.className = driver.isVerified ? "status active" : "status pending";
 
-  // Button
-  toggleStatusBtn.textContent = driver.available ? "Mark Unavailable" : "Approve";
+  // Toggle Verification
+  toggleStatusBtn.textContent = driver.isVerified ? "Mark Unverified" : "Verify Driver";
   toggleStatusBtn.onclick = async () => {
-    await updateDoc(driverRef, { available: !driver.available });
-    alert("Driver status updated!");
+    await updateDoc(driverRef, { isVerified: !driver.isVerified });
+    alert("Driver verification updated!");
     loadDriver();
   };
 
-  // Base64 Images
+  // Images
   imgProfile.src = driver.image_profile || "https://via.placeholder.com/150";
-  imgFront.src = driver.image_car_front || "https://via.placeholder.com/150";
-  imgBack.src = driver.image_car_back || "https://via.placeholder.com/150";
-  imgCnic.src = driver.image_cnic || "https://via.placeholder.com/150";
+  imgProfileDoc.src = driver.image_profile || "https://via.placeholder.com/150";
+  imgCnicFront.src = driver.image_cnic_front || "https://via.placeholder.com/150";
+  imgCnicBack.src = driver.image_cnic_back || "https://via.placeholder.com/150";
+  imgLicenseFront.src = driver.image_license_front || "https://via.placeholder.com/150";
+  imgLicenseBack.src = driver.image_license_back || "https://via.placeholder.com/150";
 }
 
 loadDriver();

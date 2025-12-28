@@ -6,6 +6,9 @@
   <title>Musafirrah Dashboard</title>
   <link rel="stylesheet" href="../Css/dashboard.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
 </head>
 <body>
 
@@ -17,10 +20,11 @@
     <ul>
       <li class="active"><a href="../Html/Dashboard.html">Dashboard</a></li>
       <li><a href="../Html/Driver.html">Drivers</a></li>
-      <li><a href="trips.html">Trips</a></li>
+      <li><a href="trip.html">Trips</a></li>
       <li><a href="user.html">Users</a></li>
       <li><a href="settings.html">Settings</a></li>
-      <li id="logout">Logout</li>
+            <li><a href="Login.html">Logout</a></li>
+
     </ul>
   </aside>
 
@@ -59,28 +63,77 @@
       </div>
 
       <!-- Map Section -->
-      <div class="map-section">
-        <h3>Karachi Driver Heatmap</h3>
-        <div class="map-placeholder">
-          <canvas id="heatmap"></canvas>
-        </div>
-        <small>55 drivers currently online</small>
-      </div>
+<!-- Map Section -->
+<div class="map-section">
+  <h3>Karachi Driver Heatmap</h3>
 
-      <!-- Recent Drivers -->
-      <div class="recent-section">
-        <h3>Recent Drivers</h3>
-        <table>
-          <thead>
-            <tr><th>Name</th><th>Car</th><th>Trips</th><th>Status</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Ali Khan</td><td>Toyota Corolla</td><td>120</td><td><span class="status active">Active</span></td></tr>
-            <tr><td>Sara Ahmed</td><td>Honda Civic</td><td>95</td><td><span class="status inactive">Offline</span></td></tr>
-            <tr><td>Bilal Sheikh</td><td>Suzuki Alto</td><td>60</td><td><span class="status active">Active</span></td></tr>
-          </tbody>
-        </table>
-      </div>
+  <div id="map" class="leaflet-map"></div>
+
+  <small>55 drivers currently online</small>
+</div>
+<!-- Driver Graph Section -->
+<div class="map-section">
+  <h3>Driver Activity Graph</h3>
+  <canvas id="driverGraph"></canvas>
+</div>
+
+<!-- DRIVER LISTING SECTION -->
+<div class="recent-section" style="margin-top: 30px;">
+    <h3 class="section-title">Recent Drivers</h3>
+
+    <div class="drivers-grid">
+
+        <!-- Driver Card 1 -->
+        <div class="driver-card">
+            <div class="profile">
+                <img src="https://i.pravatar.cc/100?img=12" alt="Driver">
+                <div>
+                    <div class="name">Ali Khan</div>
+                    <div class="car">Toyota Corolla</div>
+                    <div class="phone">+92 300 1234567</div>
+                </div>
+            </div>
+
+            <span class="status-badge status-active">Active</span>
+
+            <a href="#" class="view-btn">View Details</a>
+        </div>
+
+        <!-- Driver Card 2 -->
+        <div class="driver-card">
+            <div class="profile">
+                <img src="https://i.pravatar.cc/100?img=32" alt="Driver">
+                <div>
+                    <div class="name">Sara Ahmed</div>
+                    <div class="car">Honda Civic</div>
+                    <div class="phone">+92 300 9876543</div>
+                </div>
+            </div>
+
+            <span class="status-badge status-pending">Offline</span>
+
+            <a href="#" class="view-btn">View Details</a>
+        </div>
+
+        <!-- Driver Card 3 -->
+        <div class="driver-card">
+            <div class="profile">
+                <img src="https://i.pravatar.cc/100?img=45" alt="Driver">
+                <div>
+                    <div class="name">Bilal Sheikh</div>
+                    <div class="car">Suzuki Alto</div>
+                    <div class="phone">+92 333 5647382</div>
+                </div>
+            </div>
+
+            <span class="status-badge status-active">Active</span>
+
+            <a href="#" class="view-btn">View Details</a>
+        </div>
+
+    </div>
+</div>
+
     </div>
   </div>
 

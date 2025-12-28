@@ -1,9 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-// =======================
-// Firebase Config & Init
-// =======================
+// Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyDWoif_lwdhAINHWHEhG0l8TjsfzjYeGG8",
   authDomain: "musafirah-app.firebaseapp.com",
@@ -17,9 +15,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// =======================
-// Helper to convert image to base64
-// =======================
+// Convert file to Base64
 function toBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -29,51 +25,50 @@ function toBase64(file) {
   });
 }
 
-// =======================
-// Submit Handler
-// =======================
+// Form submit
 document.getElementById("driverForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const car_model = document.getElementById("car_model").value.trim();
-  const car_number = document.getElementById("car_number").value.trim();
+  const data = {
+    name: document.getElementById("name").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    role: document.getElementById("role").value,
+    city: document.getElementById("city").value.trim(),
+    Cnic_Number: document.getElementById("Cnic_Number").value.trim(),
+    cnic_name: document.getElementById("cnic_name").value.trim(),
+    cnic_dob: document.getElementById("cnic_dob").value,
+    cnic_issue: document.getElementById("cnic_issue").value,
+    cnic_expiry: document.getElementById("cnic_expiry").value,
+    License_Number: document.getElementById("License_Number").value.trim(),
+    license_expiry: document.getElementById("license_expiry").value,
+    emergency_contact: document.getElementById("emergency_contact").value
+      .split(",").map(s => s.trim()).filter(s => s),
+    emergency_relation: document.getElementById("emergency_relation").value.trim(),
+    isVerified: document.getElementById("isVerified").value === "true",
+    created_at: new Date().toISOString()
+  };
 
-  // Convert all images to Base64
-  const image_profile = document.getElementById("image_profile").files[0]
-    ? await toBase64(document.getElementById("image_profile").files[0])
-    : "";
-  const image_car_front = document.getElementById("image_car_front").files[0]
-    ? await toBase64(document.getElementById("image_car_front").files[0])
-    : "";
-  const image_car_back = document.getElementById("image_car_back").files[0]
-    ? await toBase64(document.getElementById("image_car_back").files[0])
-    : "";
-  const image_cnic = document.getElementById("image_cnic").files[0]
-    ? await toBase64(document.getElementById("image_cnic").files[0])
-    : "";
+  // Convert images to Base64
+  const imageIds = [
+    "image_profile",
+    "image_cnic_front",
+    "image_cnic_back",
+    "image_license_front",
+    "image_license_back"
+  ];
+
+  for (const id of imageIds) {
+    const fileInput = document.getElementById(id).files[0];
+    data[id] = fileInput ? await toBase64(fileInput) : "";
+  }
 
   try {
-    await addDoc(collection(db, "drivers"), {
-      name,
-      email,
-      phone,
-      car_model,
-      car_number,
-      trips: 0,
-      available: false,
-      image_profile,
-      image_car_front,
-      image_car_back,
-      image_cnic,
-    });
-
+    await addDoc(collection(db, "drivers"), data);
     alert("✅ Driver registered successfully!");
     window.location.href = "driver.html";
-  } catch (error) {
-    console.error("Error adding driver:", error);
+  } catch (err) {
+    console.error(err);
     alert("Error registering driver!");
   }
 });

@@ -14,10 +14,10 @@
     <ul>
       <li><a href="dashboard.html">Dashboard</a></li>
       <li class="active"><a href="driver.html">Drivers</a></li>
-      <li><a href="trips.html">Trips</a></li>
+      <li><a href="trip.html">Trips</a></li>
       <li><a href="user.html">Users</a></li>
       <li><a href="settings.html">Settings</a></li>
-      <li id="logout">Logout</li>
+            <li><a href="Login.html">Logout</a></li>
     </ul>
   </aside>
 
@@ -31,8 +31,17 @@
         <h2 id="driverName">Driver Name</h2>
         <p><strong>Email:</strong> <span id="driverEmail"></span></p>
         <p><strong>Phone:</strong> <span id="driverPhone"></span></p>
-        <p><strong>Car:</strong> <span id="driverCar"></span></p>
-        <p><strong>Trips:</strong> <span id="driverTrips"></span></p>
+        <p><strong>Role:</strong> <span id="driverRole"></span></p>
+        <p><strong>City:</strong> <span id="driverCity"></span></p>
+        <p><strong>CNIC:</strong> <span id="driverCnic"></span></p>
+        <p><strong>CNIC Name:</strong> <span id="driverCnicName"></span></p>
+        <p><strong>CNIC DOB:</strong> <span id="driverCnicDob"></span></p>
+        <p><strong>CNIC Issue:</strong> <span id="driverCnicIssue"></span></p>
+        <p><strong>CNIC Expiry:</strong> <span id="driverCnicExpiry"></span></p>
+        <p><strong>License Number:</strong> <span id="driverLicense"></span></p>
+        <p><strong>License Expiry:</strong> <span id="driverLicenseExpiry"></span></p>
+        <p><strong>Emergency Contact:</strong> <span id="driverEmergency"></span></p>
+        <p><strong>Emergency Relation:</strong> <span id="driverEmergencyRelation"></span></p>
         <p><strong>Status:</strong> <span id="driverStatus" class="status"></span></p>
         <button id="toggleStatusBtn" class="red-button"></button>
       </div>
@@ -41,16 +50,24 @@
     <h3 class="gallery-title">Driver Documents</h3>
     <div class="image-gallery">
       <div>
-        <p>Car Front</p>
-        <img id="image_car_front" src="" alt="Car Front">
+        <p>CNIC Front</p>
+        <img id="image_cnic_front" src="" alt="CNIC Front">
       </div>
       <div>
-        <p>Car Back</p>
-        <img id="image_car_back" src="" alt="Car Back">
+        <p>CNIC Back</p>
+        <img id="image_cnic_back" src="" alt="CNIC Back">
       </div>
       <div>
-        <p>CNIC</p>
-        <img id="image_cnic" src="" alt="CNIC">
+        <p>License Front</p>
+        <img id="image_license_front" src="" alt="License Front">
+      </div>
+      <div>
+        <p>License Back</p>
+        <img id="image_license_back" src="" alt="License Back">
+      </div>
+      <div>
+        <p>Profile Image</p>
+        <img id="image_profile_doc" src="" alt="Profile">
       </div>
     </div>
   </div>

@@ -15,9 +15,9 @@
       <li><a href="dashboard.html">Dashboard</a></li>
       <li><a href="driver.html">Drivers</a></li>
       <li class="active"><a href="user.html">Users</a></li>
-      <li><a href="trips.html">Trips</a></li>
+      <li><a href="trip.html">Trips</a></li>
       <li><a href="settings.html">Settings</a></li>
-      <li id="logout">Logout</li>
+            <li><a href="Login.html">Logout</a></li>
     </ul>
   </aside>
 
@@ -32,8 +32,18 @@
       </div>
 
       <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="email" required />
+      </div>
+
+      <div class="form-group">
         <label>CNIC</label>
         <input type="text" id="cnic" placeholder="xxxxx-xxxxxxx-x" required />
+      </div>
+
+      <div class="form-group">
+        <label>Date of Birth</label>
+        <input type="date" id="dob" />
       </div>
 
       <div class="form-group">
@@ -42,8 +52,23 @@
       </div>
 
       <div class="form-group">
+        <label>Emergency Contact (comma separated)</label>
+        <input type="text" id="emergencyContact" placeholder="0311xxxxxxx, 0321xxxxxxx" />
+      </div>
+
+      <div class="form-group">
+        <label>Relation with Emergency Contact</label>
+        <input type="text" id="relationEmergency" />
+      </div>
+
+      <div class="form-group">
         <label>Address</label>
         <textarea id="address" rows="2" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Wallet Balance (Rs)</label>
+        <input type="number" id="walletBalance" value="0" min="0" />
       </div>
 
       <div class="form-images">

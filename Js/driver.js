@@ -1,10 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getFirestore, collection, getDocs, updateDoc, doc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-import { getStorage } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js";
 
-// =======================
-// Firebase Config & Init
-// =======================
+// Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyDWoif_lwdhAINHWHEhG0l8TjsfzjYeGG8",
   authDomain: "musafirah-app.firebaseapp.com",
@@ -17,22 +14,17 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const storage = getStorage(app);
 
-// =======================
 // DOM Elements
-// =======================
 const driverTable = document.getElementById("driverTable");
 const createDriverBtn = document.getElementById("createDriverBtn");
 
 // Navigate to driver registration
 createDriverBtn.addEventListener("click", () => {
-  window.location.href = "../Htmldriverregistration.html";
+  window.location.href = "../Html/DriverRegistration.html";
 });
 
-// =======================
 // Load Drivers
-// =======================
 async function loadDrivers() {
   const driversCol = collection(db, "drivers");
   const driversSnapshot = await getDocs(driversCol);
@@ -44,15 +36,18 @@ async function loadDrivers() {
     const tr = document.createElement("tr");
 
     tr.innerHTML = `
-      <td>${driver.name}</td>
-      <td>${driver.car_model} - ${driver.car_number}</td>
+      <td>${driver.name || "-"}</td>
+      <td>${driver.car_model || "-"} - ${driver.car_number || "-"}</td>
       <td>${driver.trips || 0}</td>
-      <td><span class="status ${driver.available ? 'active' : 'pending'}">
-          ${driver.available ? 'Active' : 'Pending'}
+      <td>${driver.city || "-"}</td>
+      <td>${driver.role || "-"}</td>
+      <td>
+        <span class="status ${driver.isVerified ? 'active' : 'pending'}">
+          ${driver.isVerified ? 'Verified' : 'Pending'}
         </span>
       </td>
       <td>
-        ${!driver.available ? `<button class="red-button approve-btn">Approve</button>` : ""}
+        ${!driver.isVerified ? `<button class="red-button approve-btn">Verify</button>` : ""}
       </td>
     `;
 
@@ -63,12 +58,12 @@ async function loadDrivers() {
       }
     });
 
-    // Approve pending driver
-    if (!driver.available) {
+    // Verify driver
+    if (!driver.isVerified) {
       tr.querySelector(".approve-btn").addEventListener("click", async (e) => {
         e.stopPropagation();
-        await updateDoc(doc(db, "drivers", driver.id), { available: true });
-        alert(`${driver.name} approved!`);
+        await updateDoc(doc(db, "drivers", driver.id), { isVerified: true });
+        alert(`${driver.name} verified!`);
         loadDrivers();
       });
     }

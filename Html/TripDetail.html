@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trip Details | Musafirrah</title>
+  <link rel="stylesheet" href="../Css/userDetail.css" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">🚗 Musafirrah</div>
+    <ul>
+      <li><a href="Dashboard.html">Dashboard</a></li>
+      <li><a href="Driver.html">Drivers</a></li>
+      <li class="active"><a href="Trip.html">Trips</a></li>
+      <li><a href="user.html">Users</a></li>
+      <li><a href="settings.html">Settings</a></li>
+            <li><a href="Login.html">Logout</a></li>
+    </ul>
+  </aside>
+
+  <div class="main-content">
+    <h2>Trip Details</h2>
+    <div class="trip-card">
+      <div class="trip-info">
+        <p><strong>Driver:</strong> <span id="driver_name"></span></p>
+        <p><strong>Passenger:</strong> <span id="passenger_name"></span></p>
+        <p><strong>From:</strong> <span id="from_location"></span></p>
+        <p><strong>To:</strong> <span id="to_location"></span></p>
+        <p><strong>Start Time:</strong> <span id="create_date_time"></span></p>
+        <p><strong>End Time:</strong> <span id="complete_date_time"></span></p>
+        <p><strong>Fare:</strong> <span id="total_fare"></span></p>
+        <p><strong>Seating Capacity:</strong> <span id="seating_capacity"></span></p>
+        <p><strong>Rating:</strong> <span id="ratings"></span></p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../Js/tripDetail.js"></script>
+</body>
+</html>
