@@ -21,9 +21,15 @@ body, html {
 
 .sidebar .logo {
   text-align: center;
-  font-size: 1.5rem;
-  margin-bottom: 30px;
+  margin-bottom: -50px;
 }
+
+.sidebar-logo {
+  width: 150px;       /* adjust size */
+  margin: -14 ; 
+  position: relative;   /* center horizontally */
+}
+
 
 .sidebar ul {
   list-style: none;

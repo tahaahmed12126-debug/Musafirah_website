@@ -29,6 +29,21 @@ const ratings = document.getElementById("ratings");
 // Get trip ID from URL
 const urlParams = new URLSearchParams(window.location.search);
 const tripId = urlParams.get("id");
+function formatTimestamp(ts) {
+  if (!ts) return "-";
+
+  // Firestore Timestamp → JS Date
+  const date = ts.toDate();
+
+  return date.toLocaleString("en-GB", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+}
 
 async function loadTrip() {
   if (!tripId) return alert("No trip ID provided!");
@@ -44,8 +59,9 @@ async function loadTrip() {
   passengerName.textContent = trip.passenger_name || "-";
   fromLocation.textContent = trip.From_Location || "-";
   toLocation.textContent = trip.To_Location || "-";
-  createDateTime.textContent = trip.Create_Date_Time || "-";
-  completeDateTime.textContent = trip.Complete_Date_Time || "-";
+createDateTime.textContent = formatTimestamp(trip.Create_Date_Time);
+completeDateTime.textContent = formatTimestamp(trip.Complete_Date_Time);
+
   totalFare.textContent = trip.Total_Fare || "-";
   seatingCapacity.textContent = trip.Seating_Capacity || "-";
   ratings.textContent = trip.Ratings || "-";

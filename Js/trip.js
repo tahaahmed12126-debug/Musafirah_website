@@ -17,6 +17,21 @@ const db = getFirestore(app);
 
 // DOM Elements
 const tripTable = document.getElementById("tripTable");
+function formatTimestamp(ts) {
+  if (!ts) return "-";
+
+  // Firestore Timestamp → JS Date
+  const date = ts.toDate();
+
+  return date.toLocaleString("en-GB", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+}
 
 // Load Trips
 async function loadTrips() {
@@ -33,8 +48,9 @@ async function loadTrips() {
       <td>${trip.passenger_name || "-"}</td>
       <td>${trip.From_Location || "-"}</td>
       <td>${trip.To_Location || "-"}</td>
-      <td>${trip.Create_Date_Time || "-"}</td>
-      <td>${trip.Complete_Date_Time || "-"}</td>
+<td>${formatTimestamp(trip.Create_Date_Time)}</td>
+<td>${formatTimestamp(trip.Complete_Date_Time)}</td>
+
       <td>${trip.Total_Fare || "-"}</td>
       <td>${trip.Seating_Capacity || "-"}</td>
       <td>${trip.Ratings || "-"}</td>
